@@ -93,6 +93,12 @@ def game()
 
     game_over(winner,player1,player2)
 
+    puts "vill du köra igen skriv: ja"
+    input = gets.chomp.downcase
+    if input == "ja"
+        game()
+    end
+
 
 end
 
@@ -106,7 +112,7 @@ def set_up()
     puts "spelare 2 = #{player2}"
 
 
-    pinnar = rand(11..16)
+    pinnar = rand(13..18)
 
     vems_tur = rand(1..2)
 
