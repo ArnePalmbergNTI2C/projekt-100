@@ -1,24 +1,40 @@
-def display_pinnar(pinnar)
-    output = ""
-    i = 0
+#instroktion
 
-    while i < pinnar
-        output << "| "
+def set_up()
+    puts "spelare 1 namn:"
+    player1 = gets.chomp
 
-        i +=1
+    puts "spelare 2 namn:"
+    player2 = gets.chomp
+
+    puts "vill du veta hur man spelar spelet skriv: ja"
+    input = gets.chomp.downcase
+    if input == "ja"
+        system("cls")
+        puts "Här finns regler"
+        puts ""
+        puts ""
+        puts ""
+        puts "vill du stänga ner reglerna skriv: ja"
+        input = gets.chomp.downcase
+        while input != "ja"
+            puts "skriv ja"
+            input = gets.chomp.downcase
+        end    
     end
-    puts "antal pinnar kvar:"
-    puts output
+
+    pinnar = rand(13..18)
+
+    vems_tur = rand(1..2)
+
+    return player1,player2,pinnar,vems_tur
 end
 
 def play(player1,player2,pinnar,vems_tur)
 
-
-    display_pinnar(pinnar)
-
     while pinnar > 0 
         system("cls")
-        display_pinnar(pinnar)
+        puts display_pinnar(pinnar)
 
 
         if vems_tur % 2 == 0
@@ -29,19 +45,18 @@ def play(player1,player2,pinnar,vems_tur)
                 valid = true
                 if antal > 3 || antal < 1
                     valid = false
-                    puts "välj igen"
+                    puts "välj igen. välj ett tal mellan 1-3"
                     antal = gets.chomp.to_i
                 elsif antal.class != Integer
                     valid = false
-                    puts "välj igen"
+                    puts "välj igen. måste vara ett heltal"
                     antal = gets.chomp
                 end
                 
             end
 
             pinnar -= antal
-            display_pinnar(pinnar)
-
+            puts display_pinnar(pinnar)
 
         else
             puts "#{player1}. välj hur många pinnar som ska tas bort"
@@ -51,19 +66,18 @@ def play(player1,player2,pinnar,vems_tur)
                 valid = true
                 if antal > 3 || antal < 1
                     valid = false
-                    puts "välj igen"
+                    puts "välj igen. välj ett tal mellan 1-3"
                     antal = gets.chomp.to_i
                 elsif antal.class != Integer
                     valid = false
-                    puts "välj igen"
+                    puts "välj igen. måste vara ett heltal"
                     antal = gets.chomp
                 end
                 
             end
 
             pinnar -= antal
-            display_pinnar(pinnar)
-
+            puts display_pinnar(pinnar)
 
         end
         
@@ -86,6 +100,8 @@ def game_over(winner,player1,player2)
 end
 
 def game()
+
+    system("cls")
     
     player1,player2,pinnar,vems_tur = set_up()
 
@@ -99,27 +115,19 @@ def game()
         game()
     end
 
-
 end
 
-def set_up()
-    puts "spelare 1 namn:"
-    player1 = gets.chomp
-    puts "spelare 1 = #{player1}"
+def display_pinnar(pinnar)
+    output = ""
+    i = 0
 
-    puts "spelare 2 namn:"
-    player2 = gets.chomp
-    puts "spelare 2 = #{player2}"
+    while i < pinnar
+        output << "| "
 
-
-    pinnar = rand(13..18)
-
-    vems_tur = rand(1..2)
-
-    system("cls")
-
-    return player1,player2,pinnar,vems_tur
+        i +=1
+    end
+    puts "antal pinnar kvar:"
+    return output
 end
-
 
 game()
