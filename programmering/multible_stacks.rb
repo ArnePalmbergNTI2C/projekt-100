@@ -71,7 +71,7 @@ def set_up_multible_stacks()
 end
 
 def make_stacks(antal_hog)
-    pinnar = {}
+    pinnar = []
 
     i = 0
     while i < antal_hog
@@ -146,7 +146,7 @@ end
 def pinnar_left(pinnar)
     i = 0
     left = 0
-    while i < pinnar.lenght
+    while i < pinnar.length
         left += pinnar[i]
 
         i += 1
@@ -157,7 +157,7 @@ end
 def display_multible_stacks(pinnar)
     i = 0
 
-    while i < pinnar.lenght
+    while i < pinnar.length
         output = ""
         j = 0
         while j < pinnar[i]
@@ -182,7 +182,7 @@ def play_multible_stacks(player1,player2,pinnar,vems_tur)
             valid = false
             while valid == false
                 valid = true
-                if hog > pinnar.lenght || hog < 1
+                if hog > pinnar.length || hog < 1
                     valid = false
                     puts "välj igen. välj ett tal mellan 1-3"
                     hog = gets.chomp.to_i
@@ -217,7 +217,7 @@ def play_multible_stacks(player1,player2,pinnar,vems_tur)
             if pinnar[hog-1] < 1
                 pinnar[hog-1] = 0
             end
-            display_pinnar(pinnar)
+            display_multible_stacks(pinnar)
 
         else
             puts "#{player1} välj hög"
@@ -225,7 +225,7 @@ def play_multible_stacks(player1,player2,pinnar,vems_tur)
             valid = false
             while valid == false
                 valid = true
-                if hog > pinnar.lenght || hog < 1
+                if hog > pinnar.length || hog < 1
                     valid = false
                     puts "välj igen. välj ett tal mellan 1-3"
                     hog = gets.chomp.to_i
@@ -260,7 +260,7 @@ def play_multible_stacks(player1,player2,pinnar,vems_tur)
             if pinnar[hog-1] < 1
                 pinnar[hog-1] = 0
             end
-            display_pinnar(pinnar)
+            display_multible_stacks(pinnar)
 
         end
 
@@ -295,12 +295,11 @@ end
 
 def game()
 
-    player1,player2,pinnar,vems_tur
     system("cls")
 
     if multible_stacks() == true
         player1,player2,pinnar,vems_tur = set_up_multible_stacks()
-
+        winner = play_multible_stacks(player1,player2,pinnar,vems_tur)
     else
         player1,player2,pinnar,vems_tur = set_up()
         winner = play(player1,player2,pinnar,vems_tur)
