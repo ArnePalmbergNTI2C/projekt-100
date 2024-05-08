@@ -89,7 +89,7 @@ def play(player1,player2,pinnar,vems_tur)
 
     while pinnar > 0 
         system("cls")
-        puts display_pinnar(pinnar)
+        display_pinnar(pinnar)
 
 
         if vems_tur % 2 == 0
@@ -111,7 +111,7 @@ def play(player1,player2,pinnar,vems_tur)
             end
 
             pinnar -= antal
-            puts display_pinnar(pinnar)
+            display_pinnar(pinnar)
 
         else
             puts "#{player1}. välj hur många pinnar som ska tas bort"
@@ -132,7 +132,7 @@ def play(player1,player2,pinnar,vems_tur)
             end
 
             pinnar -= antal
-            puts display_pinnar(pinnar)
+            display_pinnar(pinnar)
 
         end
         
