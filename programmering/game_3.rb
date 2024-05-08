@@ -186,6 +186,8 @@ def game()
 
 end
 
+# beskrivning: 
+
 def display_pinnar(pinnar)
     output = ""
     i = 0
