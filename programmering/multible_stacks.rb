@@ -32,7 +32,7 @@ def set_up_multible_stacks()
     puts "Hur många högar med pinnar vill du ha, svara med ett tal från 1 till 5"
     input = gets.chomp.to_i
     while input < 1 || input > 5
-        puts "skriv ett tal från 1 till 5"
+        puts "skriv ett tal från 2 till 5"
 
         input = gets.chomp.to_i
     end
@@ -70,6 +70,13 @@ def set_up_multible_stacks()
     return player1,player2,pinnar,vems_tur
 end
 
+# Beskrivning: make_stacks funktionen gör en array som ska föreställa flera högar av pinnar. Hur många högar som gör beror på första argumentet. Hur många pinnar det är i varje hög slumpas från 13 till 18
+# Argument 1: integer antal_hog => analet högar som ska skapas
+# Return: Array pinnar => alla högar med slumpvis antal pinnar
+# Exempel 1: make_stacks(2) => [rand(13..18), rand(13..18)]
+# Exempel 2: make_stacks(5) => [rand(13..18), rand(13..18), rand(13..18), rand(13..18), rand(13..18)]
+# Datum: 2024-05-12
+# Namn: Noah Törngren, Arne Palmberg
 def make_stacks(antal_hog)
     pinnar = []
 
@@ -154,6 +161,13 @@ def pinnar_left(pinnar)
     return left
 end
 
+# Beskrivning: display_multitible_stacks funktionen demonstrerar hur många pinnar som finns kvar i varje hög. Hur många pinnar som finns kvar ritas ut på skärmen
+# Argument 1: array pinnar => en array med antalet pinnar i varje hög
+# Return: nil => inget retuneras, bara skrivs ut på skärmen
+# Exempel 1: display_multible_stacks([1,3,5]) => nil, dock skrivs detta ut på skärmen: "|""/n""|||""/n""|||||"
+# Exempel 2: display_multible_stacks([2,0,2,6]) => nil, dock skrivs detta ut på skärmen: "||"/n""/n""||""/n"||||||"
+# Datum: 2024-05-12
+# Namn: Noah Törngren, Arne Palmberg
 def display_multible_stacks(pinnar)
     i = 0
 
