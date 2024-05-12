@@ -168,11 +168,9 @@ def game()
     
     player1,player2,pinnar,vems_tur, bot,player = set_up()
 
-    p bot
     if bot == false
         winner = play(player1,player2,pinnar,vems_tur)
     else
-        puts "bot vald"
         winner = play_bot(player, pinnar,vems_tur)
     end
 
@@ -186,7 +184,31 @@ def game()
 
 end
 
+#vet inte om Noah också gjorde denna funktionen. Gjorde denna på söndagen och vi har inte delad kod
+#beskriving: En funktion som borde ta en integer som argument och returnerar sen en string med lika många "| " som argumentet
+#argument 1: Vilken klass som helst - Vilken klass som helst kan tas in i funktionen. Argumentet kommer snart göras om till en integer
+#return: String - returnerar ett antal sånna här " |" i en string beroende på antal i argument 1.
+#exempel:
+# display_pinnar(1) # => |
+# display_pinnar(5) # => | | | | |
+# display_pinnar(10) # => | | | | | | | | | |
+# display_pinnar(-5) # => 
+# display_pinnar(0) # => 
+# display_pinnar(b) # => 
+# display_pinnar([3]) # => 
+# display_pinnar(false) # => 
+# display_pinnar(1.3) # => |
+# display_pinnar(2.3) # => ||
+# display_pinnar(2.99) # => ||
+# display_pinnar(3) # => |||
+# display_pinnar("1.3") # => |
+# display_pinnar("2.3") # => ||
+# display_pinnar("2.99") # => ||
+# display_pinnar("3"") # => |||
+#datum: 2024-05-12
+#namn: Arne Palmberg
 def display_pinnar(pinnar)
+    pinnar = pinnar.to_s.to_i
     output = ""
     i = 0
 
@@ -216,7 +238,6 @@ def bottens_tur(pinnar)
     when 18
         antal = pinnar - 15
     else 
-        p "he"
         antal = rand(1..3)
     end
 
