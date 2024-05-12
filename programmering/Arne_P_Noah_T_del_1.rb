@@ -168,11 +168,9 @@ def game()
     
     player1,player2,pinnar,vems_tur, bot,player = set_up()
 
-    p bot
     if bot == false
         winner = play(player1,player2,pinnar,vems_tur)
     else
-        puts "bot vald"
         winner = play_bot(player, pinnar,vems_tur)
     end
 
@@ -218,7 +216,6 @@ def bottens_tur(pinnar)
     when 18
         antal = pinnar - 15
     else 
-        p "he"
         antal = rand(1..3)
     end
 
