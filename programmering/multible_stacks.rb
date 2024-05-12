@@ -166,6 +166,8 @@ end
 # Return: nil => inget retuneras, bara skrivs ut på skärmen
 # Exempel 1: display_multible_stacks([1,3,5]) => nil, dock skrivs detta ut på skärmen: "|""/n""|||""/n""|||||"
 # Exempel 2: display_multible_stacks([2,0,2,6]) => nil, dock skrivs detta ut på skärmen: "||"/n""/n""||""/n"||||||"
+# Datum: 2024-05-12
+# Namn: Noah Törngren, Arne Palmberg
 def display_multible_stacks(pinnar)
     i = 0
 
